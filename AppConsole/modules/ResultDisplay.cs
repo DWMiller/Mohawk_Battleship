@@ -71,11 +71,11 @@ namespace MBC.App.Terminal.Modules
                 shotBots[i] /= competition.NumberOfRounds;
                 hitBots[i] /= competition.NumberOfRounds;
             }
-            WriteCenteredText(string.Format("{0}     shots on average     {1}", shotBots[0], shotBots[1]));
+            WriteCenteredText(string.Format("{0}     shots on average     {1}", shotBots[1], shotBots[0]));
             NewLine();
-            WriteCenteredText(string.Format("{0}     hits on average      {1}", hitBots[0], hitBots[1]));
+            WriteCenteredText(string.Format("{0}     hits on average      {1}", hitBots[1], hitBots[0]));
             NewLine();
-            WriteCenteredText(string.Format("{0}     misses on average    {1}", shotBots[0] - hitBots[0], shotBots[1] - hitBots[1]));
+            WriteCenteredText(string.Format("{0}     misses on average    {1}", shotBots[1] - hitBots[1], shotBots[0] - hitBots[0]));
             NewLine(2);
             buttonLayout.Display();
         }
