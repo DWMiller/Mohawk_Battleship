@@ -22,14 +22,21 @@ namespace MBC.App.Terminal.Modules
         private NumericControl roundsNumberControl;
         private CheckboxControl showBoards;
 
+        // New match values
+        private const int defaultRounds = 1000;//number of rounds
+        private const int roundsIncrement = 10;
+        private const int defaultInterval = 0; // interval between rounds, in milliseconds 
+        private const int intervalIncrement = 25; // interval between rounds, in milliseconds 
+
         public CompetitionOptionsDisplay(ControllerSkeleton red, ControllerSkeleton blue)
         {
             this.red = red;
             this.blue = blue;
             layout = new VerticalLayout(VerticalLayout.VerticalAlign.Center);
-            roundsNumberControl = new NumericControl(new NumericControl.NumericControlParameters("# of rounds", false, 1, 100000, 10, 1000));
-            millisecondControl = new NumericControl(new NumericControl.NumericControlParameters("Millisecond delay", false, 0, 10000, 5, 0));
+            roundsNumberControl = new NumericControl(new NumericControl.NumericControlParameters("# of rounds", false, 1, 100000, roundsIncrement, defaultRounds));
+            millisecondControl = new NumericControl(new NumericControl.NumericControlParameters("Millisecond delay", false, 0, 10000, intervalIncrement, defaultInterval));
             showBoards = new CheckboxControl("Show ASCII boards");
+           
             layout.Add(roundsNumberControl);
             //layout.Add(new CheckboxControl("Play out rounds"));
             layout.Add(millisecondControl);
@@ -52,7 +59,7 @@ namespace MBC.App.Terminal.Modules
             Console.ForegroundColor = ConsoleColor.Green;
             WriteCenteredText("VS.");
 
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             AlignToCoord(Width - blueName.Length - 1, CurrentY);
             WriteText(blueName);
             NewLine();

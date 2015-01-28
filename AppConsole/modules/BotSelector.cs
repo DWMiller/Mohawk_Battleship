@@ -57,7 +57,7 @@ namespace MBC.App.Terminal.Modules
             Console.ForegroundColor = ConsoleColor.Red;
             WriteText("Red Controller:");
             AlignToCoord(Width - "Blue Controller:".Length, CurrentY);
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             WriteText("Blue Controller:");
             redList.Display();
             blueList.Display();
